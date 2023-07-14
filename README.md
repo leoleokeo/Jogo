@@ -1,2 +1,2 @@
-# Jogo
+# Jogo :)
  primeiro jogo completo :)
