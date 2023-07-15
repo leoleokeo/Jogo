@@ -10,9 +10,12 @@ config_version=4
 
 [application]
 
-config/name="Jogo_2_git"
+config/name="Bullet Bat"
 run/main_scene="res://prefabs/start_screen.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://assets/outros/Bullet Bat.png"
+boot_splash/use_filter=false
+config/icon="res://assets/outros/bat.png"
+config/windows_native_icon="res://assets/icon (2).ico"
 
 [autoload]
 

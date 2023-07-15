@@ -1,8 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://assets/Pacifico-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/outros/Pacifico-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/start_screen.gd" type="Script" id=2]
 [ext_resource path="res://assets/Background layers/Background.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=15]
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -96,6 +99,17 @@ position = Vector2( 0, -280 )
 scale = Vector2( 1.11, 1.11 )
 texture = ExtResource( 3 )
 centered = false
+
+[node name="créditos" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -125.0
+margin_right = 223.0
+custom_fonts/font = SubResource( 15 )
+text = "CRÉDITOS:
+Leonardo Gachet | Game designer
+Pixel Frog | Sprites
+"
 
 [node name="controls" type="VBoxContainer" parent="."]
 anchor_left = 0.5
