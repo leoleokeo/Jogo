@@ -91,6 +91,12 @@ margin_right = 512.0
 margin_bottom = 300.0
 script = ExtResource( 2 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -280 )
+scale = Vector2( 1.11, 1.11 )
+texture = ExtResource( 3 )
+centered = false
+
 [node name="controls" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -137,15 +143,6 @@ custom_colors/font_color_hover = Color( 0.933333, 0.835294, 0.0470588, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.521569, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "SAIR"
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2( 0, -272 )
-transform = Transform2D( 1, 0, 0, 1, 0, -272 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-scale = Vector2( 1.11, 1.11 )
-texture = ExtResource( 3 )
-centered = false
 
 [connection signal="pressed" from="controls/startBTN" to="." method="_on_startBTN_pressed"]
 [connection signal="pressed" from="controls/controlsBTN" to="." method="_on_controlsBTN_pressed"]

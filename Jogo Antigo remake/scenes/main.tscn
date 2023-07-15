@@ -14,8 +14,8 @@
 [node name="main" type="Node2D"]
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 0, -215 )
-scale = Vector2( 1.10991, 1.03153 )
+position = Vector2( 0, -280 )
+scale = Vector2( 1.11, 1.11 )
 texture = ExtResource( 3 )
 centered = false
 
@@ -29,6 +29,7 @@ script = ExtResource( 2 )
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="barreiras5" type="Node2D" parent="."]
+visible = false
 
 [node name="barreiras" type="StaticBody2D" parent="barreiras5"]
 position = Vector2( 0, 300 )

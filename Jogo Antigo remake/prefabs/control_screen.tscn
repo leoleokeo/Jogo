@@ -42,6 +42,12 @@ margin_right = 512.0
 margin_bottom = 300.0
 script = ExtResource( 3 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -280 )
+scale = Vector2( 1.11, 1.11 )
+texture = ExtResource( 2 )
+centered = false
+
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -56,15 +62,6 @@ text = "Mover para cima / w
 Mover para baixo / S
 Mover para dreita / D
 Mover para esquerda / A"
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2( 0, -270 )
-transform = Transform2D( 1, 0, 0, 1, 0, -270 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-scale = Vector2( 1.11, 1.11 )
-texture = ExtResource( 2 )
-centered = false
 
 [node name="back" type="Button" parent="."]
 margin_left = 30.0
