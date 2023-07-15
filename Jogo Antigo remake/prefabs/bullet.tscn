@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/big_bullet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/bullet.gd" type="Script" id=2]
+
+[node name="bullet" type="Area2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -40, 20, -55, 15, -60, 10, -65, 5, -65, -5, -60, -10, -55, -15, -40, -20, 45, -20, 45, 20 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
