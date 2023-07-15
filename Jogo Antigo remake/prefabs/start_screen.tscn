@@ -1,0 +1,152 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/Pacifico-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/start_screen.gd" type="Script" id=2]
+[ext_resource path="res://assets/Background layers/Background.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.529412, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=6]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.439216, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=10]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 7 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=14]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 11 )
+Button/styles/normal = SubResource( 12 )
+Button/styles/pressed = SubResource( 13 )
+
+[node name="start_screen" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 2 )
+
+[node name="controls" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -98.5
+margin_right = 104.0
+margin_bottom = 98.5
+
+[node name="startBTN" type="Button" parent="controls"]
+margin_right = 218.0
+margin_bottom = 57.0
+focus_neighbour_top = NodePath("../quitBTN")
+theme = SubResource( 6 )
+custom_colors/font_color_focus = Color( 0.933333, 0.835294, 0.0470588, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.933333, 0.835294, 0.0470588, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.521569, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "INICIAR"
+
+[node name="controlsBTN" type="Button" parent="controls"]
+margin_top = 61.0
+margin_right = 218.0
+margin_bottom = 118.0
+theme = SubResource( 10 )
+custom_colors/font_color_focus = Color( 0.933333, 0.835294, 0.0470588, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.933333, 0.835294, 0.0470588, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.521569, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "CONTROLES"
+
+[node name="quitBTN" type="Button" parent="controls"]
+margin_top = 122.0
+margin_right = 218.0
+margin_bottom = 179.0
+focus_neighbour_bottom = NodePath("../startBTN")
+theme = SubResource( 14 )
+custom_colors/font_color_focus = Color( 0.933333, 0.835294, 0.0470588, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.933333, 0.835294, 0.0470588, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.521569, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "SAIR"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, -272 )
+transform = Transform2D( 1, 0, 0, 1, 0, -272 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+scale = Vector2( 1.11, 1.11 )
+texture = ExtResource( 3 )
+centered = false
+
+[connection signal="pressed" from="controls/startBTN" to="." method="_on_startBTN_pressed"]
+[connection signal="pressed" from="controls/controlsBTN" to="." method="_on_controlsBTN_pressed"]
+[connection signal="pressed" from="controls/quitBTN" to="." method="_on_quitBTN_pressed"]
