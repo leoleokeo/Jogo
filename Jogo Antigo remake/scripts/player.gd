@@ -19,6 +19,7 @@ func _physics_process(delta):
 		direcao.y -= 1
 	check_animation()
 	if health == 0:
+		Global.salvar()
 		move_on = false
 		yield(get_tree().create_timer(0.5), "timeout")
 		Global.speed_bullet = -1500

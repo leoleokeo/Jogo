@@ -1,10 +1,19 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/outros/Pacifico-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/start_screen.gd" type="Script" id=2]
 [ext_resource path="res://assets/Background layers/Background.png" type="Texture" id=3]
+[ext_resource path="res://scripts/recorde.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=15]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 25
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
@@ -110,6 +119,28 @@ text = "CRÉDITOS:
 Leonardo Gachet | Game designer
 Pixel Frog | Sprites
 "
+
+[node name="text_recorde" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -109.0
+margin_right = 109.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 16 )
+text = "Recorde:"
+align = 1
+
+[node name="recorde" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -109.0
+margin_top = 50.0
+margin_right = 109.0
+margin_bottom = 95.0
+custom_fonts/font = SubResource( 17 )
+text = "000000"
+align = 1
+script = ExtResource( 4 )
 
 [node name="controls" type="VBoxContainer" parent="."]
 anchor_left = 0.5

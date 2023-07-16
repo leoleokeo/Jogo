@@ -3,6 +3,9 @@ extends Label
 var pontos = 0
 var speed_acres = 1
 
+func _ready():
+	pass
+
 func _physics_process(_delta):
 #	speed_acres = speed_acres
 	pontos += speed_acres
@@ -18,3 +21,7 @@ func _physics_process(_delta):
 	if pontos >= 10000:
 		text = str(pontos)
 #	print(pontos)
+	record()
+
+func record():
+	Global.record = pontos
