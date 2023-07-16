@@ -2262,5 +2262,3 @@ health = 5
 [connection signal="body_entered" from="spikes/spikes12" to="spikes/spikes12" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="spikes/spikes13" to="spikes/spikes13" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="spikes/spikes14" to="spikes/spikes14" method="_on_spikes_body_entered"]
-
-[editable path="pause_menu"]
