@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://itens/banana.tscn" type="PackedScene" id=17]
 [ext_resource path="res://prefabs/saw.tscn" type="PackedScene" id=18]
 [ext_resource path="res://prefabs/final_check.tscn" type="PackedScene" id=19]
+[ext_resource path="res://prefabs/pause_menu.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=92]
 
@@ -2229,16 +2230,18 @@ position = Vector2( 1604, 400 )
 [node name="checkpoint2" parent="checkpoints" instance=ExtResource( 11 )]
 position = Vector2( 3101, 384 )
 
+[node name="final_check" parent="checkpoints" instance=ExtResource( 19 )]
+position = Vector2( 5034, 512 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1, 387 )
 collision_mask = 25
 jump_force = -550
 health = 5
 
-[node name="HUD" parent="." instance=ExtResource( 15 )]
+[node name="pause_menu" parent="." instance=ExtResource( 20 )]
 
-[node name="final_check" parent="." instance=ExtResource( 19 )]
-position = Vector2( 5034, 512 )
+[node name="HUD" parent="." instance=ExtResource( 15 )]
 
 [connection signal="body_entered" from="fall zones/fall zone" to="fall zones/fall zone" method="_on_fall_zone_body_entered"]
 [connection signal="body_entered" from="fall zones/fall zone2" to="fall zones/fall zone2" method="_on_fall_zone_body_entered"]
@@ -2259,3 +2262,5 @@ position = Vector2( 5034, 512 )
 [connection signal="body_entered" from="spikes/spikes12" to="spikes/spikes12" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="spikes/spikes13" to="spikes/spikes13" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="spikes/spikes14" to="spikes/spikes14" method="_on_spikes_body_entered"]
+
+[editable path="pause_menu"]
