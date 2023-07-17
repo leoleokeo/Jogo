@@ -75,8 +75,11 @@ func set_anim():
 		$anim.play(anim)
 func check_health():
 	if health < 1:
+		if Global.checkpoint_pos != 0:
+			nao_zere_pontos = true
 		if !nao_zere_pontos:
 			Global.fruits = 0
+			nao_zere_pontos = false
 		get_tree().reload_current_scene()
 func hit_checkpoint():
 	Global.checkpoint_pos = position.x
