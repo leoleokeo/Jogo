@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/outros/Pacifico-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Background layers/Background.png" type="Texture" id=2]
 [ext_resource path="res://scripts/control_screen.gd" type="Script" id=3]
+[ext_resource path="res://assets/outros/Play-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
-font_data = ExtResource( 1 )
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -61,7 +64,8 @@ custom_fonts/font = SubResource( 1 )
 text = "Mover para cima / w
 Mover para baixo / S
 Mover para dreita / D
-Mover para esquerda / A"
+Mover para esquerda / A
+Pausar / Esq."
 
 [node name="back" type="Button" parent="."]
 margin_left = 30.0

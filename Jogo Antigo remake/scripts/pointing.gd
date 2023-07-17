@@ -21,7 +21,9 @@ func _physics_process(_delta):
 	if pontos >= 10000:
 		text = str(pontos)
 #	print(pontos)
+	Global.pontuacao = pontos
 	record()
 
 func record():
-	Global.record = pontos
+	if Global.pontuacao > Global.record:
+		Global.record = Global.pontuacao

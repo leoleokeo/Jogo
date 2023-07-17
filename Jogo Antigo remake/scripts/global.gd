@@ -4,9 +4,10 @@ var exit_window = true
 var speed_bullet = -1500
 var speed_acres = 1
 var life
-var record
+var pontuacao = 0
+var record = 0
 
-const file = "res://save_datas/save.txt"
+const file = "res://save_datas/save.bbg"
 
 func salvar():
 	var save = File.new()
@@ -31,3 +32,6 @@ func carregar():
 		print("erro ao carregar dados")
 	
 	save.close()
+func _physics_process(delta):
+#	print(pontuacao)
+	pass
