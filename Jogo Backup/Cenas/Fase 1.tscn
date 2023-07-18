@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" type="Texture" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Background parts/4 - Cloud_cover_2.png" type="Texture" id=9]
 [ext_resource path="res://prefabs/Spike.tscn" type="PackedScene" id=10]
 [ext_resource path="res://prefabs/checkpoint.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scripts/lago.gd" type="Script" id=12]
+[ext_resource path="res://prefabs/lago.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Pixel Adventure 1/Free/Terrain/False_platform.png" type="Texture" id=13]
 [ext_resource path="res://prefabs/falling_platforms.tscn" type="PackedScene" id=14]
 [ext_resource path="res://prefabs/HUD.tscn" type="PackedScene" id=15]
@@ -20,6 +20,7 @@
 [ext_resource path="res://prefabs/saw.tscn" type="PackedScene" id=18]
 [ext_resource path="res://prefabs/final_check.tscn" type="PackedScene" id=19]
 [ext_resource path="res://prefabs/pause_menu.tscn" type="PackedScene" id=20]
+[ext_resource path="res://prefabs/fall zone.tscn" type="PackedScene" id=21]
 
 [sub_resource type="RectangleShape2D" id=92]
 
@@ -1909,6 +1910,20 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 107/shapes = [  ]
 107/z_index = 0
 
+[sub_resource type="GDScript" id=93]
+script/source = "extends Area2D
+
+func _on_fall_zone_body_entered(body):
+	if Global.checkpoint_pos != 0:
+		body.nao_zere_pontos = true
+	if !body.nao_zere_pontos:
+		Global.fruits = 0
+	get_tree().reload_current_scene()
+"
+
+[sub_resource type="RectangleShape2D" id=94]
+extents = Vector2( 348.25, 11.5 )
+
 [sub_resource type="RectangleShape2D" id=63]
 extents = Vector2( 155.5, 10 )
 
@@ -1917,8 +1932,6 @@ extents = Vector2( 383, 8.5 )
 
 [sub_resource type="RectangleShape2D" id=62]
 extents = Vector2( 6, 259 )
-
-[sub_resource type="RectangleShape2D" id=64]
 
 [node name="Fase 1" type="Node"]
 __meta__ = {
@@ -2006,19 +2019,15 @@ centered = false
 [node name="fall zones" type="Node2D" parent="."]
 position = Vector2( 2210, 353 )
 
-[node name="fall zone" type="Area2D" parent="fall zones"]
-visible = false
-position = Vector2( -1388, 254 )
-collision_layer = 4
-collision_mask = 2
-script = ExtResource( 4 )
+[node name="fall zone" parent="fall zones" instance=ExtResource( 21 )]
+position = Vector2( -1765, 238 )
+script = SubResource( 93 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="fall zones/fall zone"]
-position = Vector2( 2, 0 )
-shape = SubResource( 63 )
+[node name="CollisionShape2D" parent="fall zones/fall zone" index="0"]
+position = Vector2( 386.25, 1.5 )
+shape = SubResource( 94 )
 
 [node name="fall zone2" type="Area2D" parent="fall zones"]
-visible = false
 position = Vector2( 400, 251 )
 collision_layer = 4
 collision_mask = 2
@@ -2029,7 +2038,6 @@ position = Vector2( 2.5, 0 )
 shape = SubResource( 63 )
 
 [node name="fall zone3" type="Area2D" parent="fall zones"]
-visible = false
 position = Vector2( 712, 251 )
 collision_layer = 4
 collision_mask = 2
@@ -2040,14 +2048,12 @@ position = Vector2( 2.5, 0 )
 shape = SubResource( 63 )
 
 [node name="fall zone4" type="Area2D" parent="fall zones"]
-visible = false
 position = Vector2( 1765, 241 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fall zones/fall zone4"]
-visible = false
 position = Vector2( 17, -1.5 )
 shape = SubResource( 65 )
 
@@ -2067,15 +2073,7 @@ position = Vector2( 5679, -41 )
 position = Vector2( 0, 189 )
 shape = SubResource( 62 )
 
-[node name="lago" type="Area2D" parent="."]
-position = Vector2( 1976, 386 )
-collision_layer = 4
-collision_mask = 2
-script = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="lago"]
-scale = Vector2( 16, 1 )
-shape = SubResource( 64 )
+[node name="lago" parent="." instance=ExtResource( 12 )]
 
 [node name="falling_platforms" type="Node2D" parent="."]
 
@@ -2244,11 +2242,9 @@ visible = false
 
 [node name="HUD" parent="." instance=ExtResource( 15 )]
 
-[connection signal="body_entered" from="fall zones/fall zone" to="fall zones/fall zone" method="_on_fall_zone_body_entered"]
 [connection signal="body_entered" from="fall zones/fall zone2" to="fall zones/fall zone2" method="_on_fall_zone_body_entered"]
 [connection signal="body_entered" from="fall zones/fall zone3" to="fall zones/fall zone3" method="_on_fall_zone_body_entered"]
 [connection signal="body_entered" from="fall zones/fall zone4" to="fall zones/fall zone4" method="_on_fall_zone_body_entered"]
-[connection signal="body_entered" from="lago" to="lago" method="_on_lago_body_entered"]
 [connection signal="body_entered" from="spikes/spikes" to="spikes/spikes" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="spikes/spikes2" to="spikes/spikes2" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="spikes/spikes3" to="spikes/spikes3" method="_on_spikes_body_entered"]
@@ -2263,3 +2259,5 @@ visible = false
 [connection signal="body_entered" from="spikes/spikes12" to="spikes/spikes12" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="spikes/spikes13" to="spikes/spikes13" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="spikes/spikes14" to="spikes/spikes14" method="_on_spikes_body_entered"]
+
+[editable path="fall zones/fall zone"]
