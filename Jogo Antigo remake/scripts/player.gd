@@ -23,7 +23,7 @@ func _physics_process(delta):
 		move_on = false
 		yield(get_tree().create_timer(0.5), "timeout")
 		Global.speed_bullet = -1500
-		get_tree().reload_current_scene()
+		Global.is_dead = true
 		
 #	print(health)
 	Global.life = health

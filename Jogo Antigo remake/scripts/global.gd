@@ -6,6 +6,8 @@ var speed_acres = 1
 var life
 var pontuacao = 0
 var record = 0
+var is_dead = false
+var is_showing = false
 
 const file = "res://save_datas/save.bbg"
 
