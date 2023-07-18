@@ -14,7 +14,7 @@ var hurtted = false
 var nao_zere_pontos = false
 
 func _ready():
-	position.x = Global.checkpoint_pos + 50
+	position.x = Global.checkpoint_pos
 
 func _physics_process(_delta):
 	if nao_zere_pontos:

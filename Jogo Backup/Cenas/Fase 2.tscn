@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tilesets/tileset.tres" type="TileSet" id=2]
@@ -9,12 +9,26 @@
 [ext_resource path="res://Assets/Background parts/3 - Cloud_cover_1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Background parts/5 - Sky_color.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Background parts/4 - Cloud_cover_2.png" type="Texture" id=9]
+[ext_resource path="res://itens/strawberry.tscn" type="PackedScene" id=10]
 [ext_resource path="res://prefabs/checkpoint.tscn" type="PackedScene" id=11]
+[ext_resource path="res://itens/pineapple.tscn" type="PackedScene" id=12]
 [ext_resource path="res://prefabs/falling_platforms.tscn" type="PackedScene" id=14]
 [ext_resource path="res://prefabs/HUD.tscn" type="PackedScene" id=15]
 [ext_resource path="res://prefabs/saw.tscn" type="PackedScene" id=18]
 [ext_resource path="res://prefabs/final_check.tscn" type="PackedScene" id=19]
 [ext_resource path="res://prefabs/pause_menu.tscn" type="PackedScene" id=20]
+
+[sub_resource type="GDScript" id=93]
+script/source = "extends Area2D
+
+func _on_lago_body_entered(body):
+	if Global.checkpoint_pos != 0:
+		body.nao_zere_pontos = true
+	if !body.nao_zere_pontos:
+		Global.fruits = 0
+		body.nao_zere_pontos = false
+	get_tree().reload_current_scene()
+"
 
 [sub_resource type="RectangleShape2D" id=92]
 
@@ -46,22 +60,18 @@ func _on_fall_zone_body_entered(body):
 [sub_resource type="RectangleShape2D" id=97]
 extents = Vector2( 736.5, 11.5 )
 
-[sub_resource type="GDScript" id=93]
-script/source = "extends Area2D
-
-func _on_lago_body_entered(body):
-	if Global.checkpoint_pos != 0:
-		body.nao_zere_pontos = true
-	if !body.nao_zere_pontos:
-		Global.fruits = 0
-		body.nao_zere_pontos = false
-	get_tree().reload_current_scene()
-"
-
 [node name="Fase 1" type="Node"]
 __meta__ = {
 "_edit_horizontal_guides_": [ -295.0 ]
 }
+
+[node name="lago" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2918, 470 )
+script = SubResource( 93 )
+
+[node name="CollisionShape2D" parent="lago" index="0"]
+visible = false
+position = Vector2( 10, 4.5 )
 
 [node name="saw_barrier" type="Node2D" parent="."]
 
@@ -217,13 +227,13 @@ position = Vector2( 3007, 355 )
 [node name="KinematicBody2D11" parent="falling_platforms" instance=ExtResource( 14 )]
 position = Vector2( 3058, 270 )
 
-[node name="spikes" type="Node2D" parent="."]
+[node name="fruits" type="Node2D" parent="."]
 
-[node name="apples" type="Node2D" parent="."]
-position = Vector2( 134, 1 )
+[node name="strawberry" parent="fruits" instance=ExtResource( 10 )]
+position = Vector2( 1789, 391 )
 
-[node name="bananas" type="Node2D" parent="."]
-position = Vector2( 31, -94 )
+[node name="pineapple" parent="fruits" instance=ExtResource( 12 )]
+position = Vector2( 1650, 374 )
 
 [node name="checkpoints" type="Node2D" parent="."]
 
@@ -244,14 +254,6 @@ visible = false
 
 [node name="HUD" parent="." instance=ExtResource( 15 )]
 
-[node name="lago" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2918, 470 )
-script = SubResource( 93 )
-
-[node name="CollisionShape2D" parent="lago" index="0"]
-visible = false
-position = Vector2( 10, 4.5 )
-
+[editable path="lago"]
 [editable path="fall zones/fall zone"]
 [editable path="fall zones/fall zone2"]
-[editable path="lago"]
