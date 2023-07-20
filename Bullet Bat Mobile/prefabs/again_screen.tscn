@@ -1,0 +1,165 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/outros/Play-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/outros/Play-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/again_screen.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.266667, 0.956863, 0.203922, 0.792157 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.266667, 0.956863, 0.203922, 0.568627 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.266667, 0.956863, 0.203922, 1 )
+
+[sub_resource type="Theme" id=5]
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 0.156863, 0.156863, 0.784314 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 0.156863, 0.156863, 0.52549 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 0.156863, 0.156863, 1 )
+
+[sub_resource type="Theme" id=10]
+Button/styles/hover = SubResource( 7 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 0.156863, 0.156863, 0.784314 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 1, 0.156863, 0.156863, 0.52549 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 1, 0.156863, 0.156863, 1 )
+
+[sub_resource type="Theme" id=14]
+Button/styles/hover = SubResource( 11 )
+Button/styles/normal = SubResource( 12 )
+Button/styles/pressed = SubResource( 13 )
+
+[node name="again_screen" type="CanvasLayer"]
+pause_mode = 2
+layer = 100
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -150.0
+margin_right = 150.0
+margin_bottom = 150.0
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.0
+margin_top = -100.0
+margin_right = 62.0
+margin_bottom = -70.0
+custom_fonts/font = SubResource( 1 )
+text = "Pontuação:"
+
+[node name="score" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.0
+margin_top = -69.0
+margin_right = 62.0
+margin_bottom = -6.0
+custom_fonts/font = SubResource( 1 )
+text = "00
+"
+align = 1
+valign = 1
+
+[node name="buttons" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="again_btn" type="Button" parent="buttons"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -12.0
+margin_right = 150.0
+margin_bottom = 13.0
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "DE NOVO?"
+
+[node name="quit_btn" type="Button" parent="buttons"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = 30.0
+margin_right = 150.0
+margin_bottom = 55.0
+theme = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
+text = "SAIR DO JOGO"
+
+[node name="quit_title_btn" type="Button" parent="buttons"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = 72.0
+margin_right = 150.0
+margin_bottom = 97.0
+theme = SubResource( 14 )
+custom_fonts/font = SubResource( 6 )
+text = "SAIR PARA O TITULO"
+
+[connection signal="pressed" from="buttons/again_btn" to="." method="_on_again_btn_pressed"]
+[connection signal="pressed" from="buttons/quit_btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="buttons/quit_title_btn" to="." method="_on_quit_title_btn_pressed"]

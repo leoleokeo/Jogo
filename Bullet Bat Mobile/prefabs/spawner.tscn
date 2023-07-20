@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/spawner_bullets.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 550, 5 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "position"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 550, 5 ), Vector2( 550, 50 ), Vector2( 550, 20 ), Vector2( 550, 100 ), Vector2( 550, 60 ), Vector2( 550, 70 ), Vector2( 550, 120 ), Vector2( 550, 300 ), Vector2( 550, 140 ), Vector2( 550, 90 ), Vector2( 550, 1130 ), Vector2( 550, 190 ), Vector2( 550, 200 ) ]
+}
+
+[node name="spawner" type="Position2D"]
+position = Vector2( 550, 5 )
+script = ExtResource( 1 )
+timer_path = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "position"
+anims/RESET = SubResource( 1 )
+anims/position = SubResource( 2 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
