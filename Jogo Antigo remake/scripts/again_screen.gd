@@ -14,7 +14,7 @@ func _physics_process(delta):
 		else:
 			$Control/label.text = "Pontuação Final:"
 		$Control/score.text = str(Global.pontuacao)
-	if !Global.is_showing:
+	if !Global.is_showing and !Global.is_paused:
 		hide()
 		get_tree().paused = false
 		

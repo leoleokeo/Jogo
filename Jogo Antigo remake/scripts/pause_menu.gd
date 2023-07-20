@@ -13,10 +13,12 @@ func toggle_pause():
 	show = !show
 	
 	if show:
+		Global.is_paused = true
 		get_tree().paused = true
 		show()
 		Global.salvar()
 	elif !show:
+		Global.is_paused = false
 		get_tree().paused = false
 		hide()
 
