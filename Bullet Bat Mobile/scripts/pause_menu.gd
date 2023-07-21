@@ -27,6 +27,7 @@ func _on_pause_quit_btn_pressed():
 	get_tree().quit()
 	Global.salvar()
 func _on_back_menu_pause_btn_pressed():
+	Global.salvar()
 	toggle_pause()
 	get_tree().change_scene("res://prefabs/start_screen.tscn")
 func _on_continuar_pause_btn_pressed():

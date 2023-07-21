@@ -23,6 +23,7 @@ func _on_again_btn_pressed():
 	Global.is_showing = false
 
 func _on_quit_btn_pressed():
+	Global.salvar()
 	get_tree().quit()
 
 func _on_quit_title_btn_pressed():

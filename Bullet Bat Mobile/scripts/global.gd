@@ -10,7 +10,10 @@ var is_dead = false
 var is_showing = false
 var is_paused = false
 
-const file = "res://save_datas/save.bbg"
+const file = "user://save.json"
+
+func _ready():
+	carregar()
 
 func salvar():
 	var save = File.new()
@@ -19,6 +22,7 @@ func salvar():
 	var dados = {"recorde" : record}
 	
 	if !erro:
+		var json_str = JSON.print(dados)
 		save.store_var(dados)
 	else:
 		print("erro ao salvar dados")
@@ -27,14 +31,19 @@ func salvar():
 func carregar():
 	var save = File.new()
 	var erro = save.open(file, File.READ)
-	
-	if !erro:
-		var dados_salvos = save.get_var()
-		record = dados_salvos["recorde"]
+	if save.file_exists(file):
+		if !erro:
+			var json_str = save.get_as_text()
+			var dados_salvos = JSON.parse(json_str)
+			if "recorde" in dados_salvos:
+				record = dados_salvos["recorde"]
+		else:
+			print("erro ao carregar dados")
+		save.close()
 	else:
-		print("erro ao carregar dados")
+		print("arquivo de salvamento nao encontrado")
+		
 	
-	save.close()
 func _physics_process(delta):
 #	print(pontuacao)
 	pass
