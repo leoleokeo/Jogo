@@ -13,6 +13,6 @@ func _physics_process(_delta):
 	move_and_collide(motion)
 
 func _on_Area2D_body_entered(body):
-	body.movement.y -= 800
+	body.movement.y = body.jump_force
 	body.health -= 1
 	body.hurtted = true

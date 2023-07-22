@@ -83,6 +83,7 @@ pause={
 2d_physics/layer_7="saw"
 2d_physics/layer_8="hurtbox"
 2d_physics/layer_9="F_P"
+2d_physics/layer_10="enemies"
 
 [physics]
 

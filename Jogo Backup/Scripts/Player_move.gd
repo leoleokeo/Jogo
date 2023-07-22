@@ -8,7 +8,6 @@ export var jump_force = 300
 var is_grounded
 var is_jumping
 onready var raycasts = $RayCasts
-var pulse
 export var health = 3
 var hurtted = false
 var nao_zere_pontos = false
@@ -83,3 +82,7 @@ func check_health():
 		get_tree().reload_current_scene()
 func hit_checkpoint():
 	Global.checkpoint_pos = position.x
+
+func _on_hurtbox_body_entered(body):
+	health -= 1
+	hurtted = true
