@@ -10,7 +10,7 @@ var is_dead = false
 var is_showing = false
 var is_paused = false
 
-const file = "user://save.json"
+const file = "user://record.json"
 
 func _ready():
 	carregar()
@@ -18,32 +18,36 @@ func _ready():
 func salvar():
 	var save = File.new()
 	var erro = save.open(file, File.WRITE)
-	
-	var dados = {"recorde" : record}
-	
+
+	var dados = {"recorde": record}
+
 	if !erro:
 		var json_str = JSON.print(dados)
-		save.store_var(dados)
+		save.store_string(json_str)
 	else:
-		print("erro ao salvar dados")
-		
+		print("Erro ao salvar dados")
+
 	save.close()
+
 func carregar():
 	var save = File.new()
 	var erro = save.open(file, File.READ)
 	if save.file_exists(file):
 		if !erro:
 			var json_str = save.get_as_text()
-			var dados_salvos = JSON.parse(json_str)
-			if "recorde" in dados_salvos:
+			var parse_result = JSON.parse(json_str)
+			if parse_result:
+				var dados_salvos = parse_result.result
 				record = dados_salvos["recorde"]
+			else:
+				print("Erro ao fazer o parsing do JSON.")
 		else:
-			print("erro ao carregar dados")
+			print("Erro ao carregar dados")
 		save.close()
 	else:
-		print("arquivo de salvamento nao encontrado")
-		
-	
+		print("Arquivo de salvamento não encontrado")
+
+
 func _physics_process(delta):
-#	print(pontuacao)
+	# print(pontuacao)
 	pass
