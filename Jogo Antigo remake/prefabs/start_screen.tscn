@@ -189,6 +189,9 @@ custom_colors/font_color_pressed = Color( 1, 0.521569, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "SAIR"
 
+[connection signal="mouse_entered" from="controls/startBTN" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="controls/startBTN" to="." method="_on_startBTN_pressed"]
+[connection signal="mouse_entered" from="controls/controlsBTN" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="controls/controlsBTN" to="." method="_on_controlsBTN_pressed"]
+[connection signal="mouse_entered" from="controls/quitBTN" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="controls/quitBTN" to="." method="_on_quitBTN_pressed"]

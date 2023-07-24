@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/outros/big_bullet.png" type="Texture" id=1]
+[ext_resource path="res://assets/outros/bullet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/bullet.gd" type="Script" id=2]
 
 [node name="bullet" type="Area2D"]

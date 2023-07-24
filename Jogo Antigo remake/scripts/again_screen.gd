@@ -1,8 +1,5 @@
 extends CanvasLayer
 
-func _ready():
-	$buttons/again_btn.grab_focus()
-
 func _physics_process(delta):
 	if Global.is_dead:
 		Global.is_dead = false
@@ -15,6 +12,7 @@ func _physics_process(delta):
 			$Control/label.text = "Pontuação Final:"
 		$Control/score.text = str(Global.pontuacao)
 	if !Global.is_showing and !Global.is_paused:
+		$buttons/again_btn.grab_focus()
 		hide()
 		get_tree().paused = false
 		
