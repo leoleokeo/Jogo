@@ -2,7 +2,7 @@ extends Area2D
 
 var motion = Vector2.ZERO
 var speed = 1300
-var speed_acres = 1
+var speed_acres = 5
 
 func _physics_process(delta):
 	Global.speed_bullet -= Global.speed_acres * delta

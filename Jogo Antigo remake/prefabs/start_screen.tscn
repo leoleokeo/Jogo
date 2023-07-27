@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/outros/Pacifico-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/start_screen.gd" type="Script" id=2]
 [ext_resource path="res://assets/Background layers/Background.png" type="Texture" id=3]
 [ext_resource path="res://scripts/recorde.gd" type="Script" id=4]
+[ext_resource path="res://assets/outros/minimizedscreen_btn.png" type="Texture" id=5]
+[ext_resource path="res://assets/outros/fullscreen_btn.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=15]
 font_data = ExtResource( 1 )
@@ -118,7 +120,7 @@ custom_fonts/font = SubResource( 15 )
 text = "CRÉDITOS:
 Leonardo Gachet | Game designer
 Pixel Frog | Sprites
-"
+Versão : 1.6.5"
 
 [node name="text_recorde" type="Label" parent="."]
 anchor_left = 0.5
@@ -189,9 +191,24 @@ custom_colors/font_color_pressed = Color( 1, 0.521569, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "SAIR"
 
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -81.0
+margin_top = -84.0
+margin_right = -11.0
+margin_bottom = -14.0
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 7 )
+expand = true
+
 [connection signal="mouse_entered" from="controls/startBTN" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="controls/startBTN" to="." method="_on_startBTN_pressed"]
 [connection signal="mouse_entered" from="controls/controlsBTN" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="controls/controlsBTN" to="." method="_on_controlsBTN_pressed"]
 [connection signal="mouse_entered" from="controls/quitBTN" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="controls/quitBTN" to="." method="_on_quitBTN_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

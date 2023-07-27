@@ -25,8 +25,9 @@ centered = false
 position = Vector2( 147, 316 )
 
 [node name="spawner" type="Position2D" parent="."]
-position = Vector2( 1024, 127 )
+position = Vector2( 1024, 100 )
 script = ExtResource( 2 )
+spawner_path = NodePath(".")
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 

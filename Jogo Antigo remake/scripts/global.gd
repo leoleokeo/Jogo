@@ -2,7 +2,7 @@ extends Node
 
 var exit_window = true
 var speed_bullet = -1500
-var speed_acres = 1
+var speed_acres = 5
 var life
 var pontuacao = 0
 var record = 0
@@ -10,7 +10,7 @@ var is_dead = false
 var is_showing = false
 var is_paused = false
 
-const file = "res://save_datas/save.bbg"
+const file = "user://save.data"
 
 func salvar():
 	var save = File.new()
