@@ -5,7 +5,8 @@ var health = 5
 var hitted = false 
 var anim
 var flying = true
-var move_on = true
+var move_on = false
+var spawned = false
 
 func _physics_process(delta):
 	var direcao = Vector2.ZERO
@@ -31,13 +32,17 @@ func _physics_process(delta):
 	move_and_slide(movimento)
 	
 func check_animation():
-	if flying:
-		anim = "fly"
-		flying = false
-	elif hitted:
-		anim = "hitted"
-		hitted = false
-	$anim.play(anim)
+	if spawned:
+		if flying:
+			anim = "fly"
+			flying = false
+		elif hitted:
+			anim = "hitted"
+			hitted = false
+		$anim.play(anim)
 func _on_anim_animation_finished(anim_name):
 	if anim_name == "hitted":
 		flying = true
+	if anim_name == "spawned":
+		spawned = true
+		move_on = true

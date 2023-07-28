@@ -11,9 +11,9 @@ func _physics_process(delta):
 #	print(Global.speed_bullet)
 
 func _on_bullet_body_entered(body):
-#	get_tree().reload_current_scene()
-	body.health -= 1
-	body.hitted = true
+	if body.name == "player":
+		body.health -= 1
+		body.hitted = true
 	
 
 func _on_VisibilityNotifier2D_screen_exited():
